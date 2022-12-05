@@ -1,16 +1,21 @@
 import React from 'react'
 
+import {Routes, Route} from 'react-router-dom'
 import Header from './components/Header'
-import StateComponent from './components/StateComponent';
-import EffectComponent from './components/EffectComponent';
+import HomeScreen from './screens/HomeScreen';
+import ReferenceScreen from './screens/ReferenceScreen';
+import DetailScreen from './screens/DetailScreen';
 import './App.css';
 
 function App() {
   return (
     <div className="App col-container">
       <Header />
-      <StateComponent />
-      <EffectComponent />
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/reference" element={<ReferenceScreen />} />
+        <Route path="/details/:id" element={<DetailScreen />} />
+      </Routes>
     </div>
   );
 }
