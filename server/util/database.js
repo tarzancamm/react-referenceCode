@@ -18,9 +18,6 @@ const db = new Sequelize(DATABASE_URL, {
 module.exports = db;
 
 
-
-
-
 //! Node uses ES5 syntax
 
 //! ES5 SYNTAX

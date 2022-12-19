@@ -4,6 +4,7 @@ const cors = require("cors");
 const server = express(); // We called this app in foundations
 const db = require("./util/database");
 const { User, Product, Cart } = require("./util/models");
+const seed = require('./util/seed')
 
 //! Middleware
 server.use(express.json());
@@ -38,7 +39,10 @@ server.get('/api/user/:id', async (req, res) => {
 
 })
 
-db.sync(); // Syncronizes models with database. Will create table if table has not been created yet. {force: true} will auto rebuild DB from ground up each time.
+db
+    .sync() // Syncronizes models with database. Will create table if table has not been created yet. {force: true} will auto rebuild DB from ground up each time.
+    //.sync({force: true})
+    // .then(() => seed())
 
 //! Listen
 server.listen(4000, () => {

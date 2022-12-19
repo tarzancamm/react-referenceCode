@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 const DetailScreen = () => {
-    const [data, setData] = useState({})
+  const [data, setData] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    .then((res) => {
-        setData(res.data)
-    })
-    .catch((err) => {
-
-    })
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {});
   }, [id]);
 
   return (
